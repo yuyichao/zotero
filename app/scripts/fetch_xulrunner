@@ -573,6 +573,11 @@ if [ $BUILD_LINUX == 1 ]; then
 		if [ -e "$archived_file" ]; then
 			echo "Using $archived_file"
 			cp "$archived_file" "firefox-$GECKO_VERSION.tar.bz2"
+		elif [ $arch = aarch64 ]; then
+			curl -O https://ftp.mozilla.org/pub/firefox/nightly/2024/06/2024-06-09-20-51-51-mozilla-central/firefox-128.0a1.en-US.linux-aarch64.tar.bz2
+			# Store local copy of unmodified app
+			mv "firefox-128.0a1.en-US.linux-aarch64.tar.bz2" "firefox-$GECKO_VERSION.tar.bz2"
+			cp "firefox-$GECKO_VERSION.tar.bz2" "$archived_file"
 		else
 			curl -O "$DOWNLOAD_URL/linux-$arch/en-US/firefox-$GECKO_VERSION.tar.bz2"
 			# Store local copy of unmodified app

@@ -867,6 +867,7 @@ if [ $BUILD_LINUX == 1 ]; then
 	else
 		archs="i686 x86_64 aarch64"
 	fi
+	cp "$CALLDIR/update-packaging/removed-files_linux-x86_64" "$CALLDIR/update-packaging/removed-files_linux-aarch64"
 	
 	for arch in $archs; do
 		runtime_path="${LINUX_RUNTIME_PATH_PREFIX}${arch}"

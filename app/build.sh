@@ -863,9 +863,9 @@ fi
 if [ $BUILD_LINUX == 1 ]; then
 	# Skip 32-bit build in tests
 	if [[ "${ZOTERO_TEST:-}" = "1" ]] || [[ "${SKIP_32:-}" = "1" ]]; then
-		archs="x86_64"
+		archs="x86_64 aarch64"
 	else
-		archs="i686 x86_64"
+		archs="i686 x86_64 aarch64"
 	fi
 	
 	for arch in $archs; do
